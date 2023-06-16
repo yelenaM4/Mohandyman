@@ -1,0 +1,10 @@
+@import "scroll.css";
+
+.bg_color {
+	background: radial-gradient(circle at top, #e6e6e6, #226b6d);
+}
+
+#bg_img {
+	background-image: url("../images/registration_bg.jpg");
+	height: 100vh;
+}

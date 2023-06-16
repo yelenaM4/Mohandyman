@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Housekeeper by skills</title>
+  </head>
+  <body class="bg_color">
+    {% extends "basehouseowner.html" %}
+     {% block content %} 
+
+     <div class="container my-5" >
+      <h2>{{msg}}</h2> <h2>{{title}}</h2>
+    <form action="/searchsk" method="get" class="mt-5">
+        <h3>Search Housekeeper by skill</h3>
+        <div class="row col-md-5 mb-5">
+            <label for="txtsk" class="form-label">Skills</label>
+            <input type="text" class="form-control" name="txtsk" id="txtsk" />
+        </div>
+        <input type="submit" class="col-3 btn btn-primary mb-3" value="Search" />
+    </form>
+    {% if rows %}
+    <table border="5" class="table table-dark table-striped">
+        <thead>
+        <h3></h3>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Skills</th>
+    </thead>
+    {% for row in rows %}
+    <tr>
+    <td>{{row.2}}</td>
+    <td>{{row.3}}</td>
+    <td>{{row.11}}</td>
+    </tr>
+        {% endfor %}
+    </table>
+    {% elif request.args.get("txtsk") is none %}
+    <p></p>
+    {% else %}
+    <p>No {{request.args.get("txtsk")}} job found!</p>
+    {% endif %} {% endblock %}
+  </div>
+
+</body>
+</html>
